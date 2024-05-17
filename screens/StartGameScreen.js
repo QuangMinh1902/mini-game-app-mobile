@@ -13,9 +13,15 @@ export default function StartGameScreen() {
 
 const styles = StyleSheet.create({
   inputContainer: {
-    flex: 1,
-    backgroundColor: "yellow",
+    backgroundColor: "#72062c",
     padding: 16,
     marginTop: 100,
+    marginHorizontal: 24,
+    borderRadius: 8,
+    elevation: 4, // shadow in android
+    shadowOffset: { width: 2, height: 2 },
+    shadowRadius: 6,
+    shadowOpacity: 1,
+    shadowColor:'red'
   },
 });
