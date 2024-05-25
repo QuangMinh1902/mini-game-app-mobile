@@ -6,4 +6,4 @@ const Colors = {
   primary700: "#4e0b29",
 };
 
-export default Colors;
+export default Colors
