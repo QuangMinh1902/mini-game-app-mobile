@@ -1,17 +1,13 @@
-import React, { useState, useCallback } from 'react';
-import {
-  ImageBackground,
-  StyleSheet,
-  SafeAreaView,
-} from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient';
-import { useFonts } from 'expo-font';
-import * as SplashScreen from 'expo-splash-screen';
+import React, { useState, useCallback } from "react";
+import { ImageBackground, StyleSheet, SafeAreaView } from "react-native";
+import { LinearGradient } from "expo-linear-gradient";
+import { useFonts } from "expo-font";
+import * as SplashScreen from "expo-splash-screen";
 
-import StartGameScreen from './screens/StartGameScreen';
-import GameScreen from './screens/GameScreen';
-import GameOverScreen from './screens/GameOverScreen';
-import Colors from './constants/colors';
+import StartGameScreen from "./screens/StartGameScreen";
+import GameScreen from "./screens/GameScreen";
+import GameOverScreen from "./screens/GameOverScreen";
+import Colors from "./constants/colors";
 
 // Keep the splash screen visible while we fetch resources
 SplashScreen.preventAutoHideAsync();
@@ -21,8 +17,8 @@ export default function App() {
   const [gameIsOver, setGameIsOver] = useState(true);
 
   const [fontsLoaded] = useFonts({
-    'open-sans': require('./assets/fonts/OpenSans-Regular.ttf'),
-    'open-sans-bold': require('./assets/fonts/OpenSans-Bold.ttf'),
+    "open-sans": require("./assets/fonts/OpenSans-Regular.ttf"),
+    "open-sans-bold": require("./assets/fonts/OpenSans-Bold.ttf"),
   });
 
   const onLayoutRootView = useCallback(async () => {
@@ -56,11 +52,11 @@ export default function App() {
 
   return (
     <LinearGradient
-      colors={[Colors.accent500, Colors.primary700]}
+      colors={[Colors.primary700, Colors.accent500]}
       style={styles.rootScreen}
     >
       <ImageBackground
-        source={require('./assets/images/background.png')}
+        source={require("./assets/images/background.png")}
         resizeMode="cover"
         style={styles.rootScreen}
         imageStyle={styles.backgroundImage}
