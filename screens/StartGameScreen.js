@@ -35,7 +35,7 @@ export default function StartGameScreen({ onPickNumber }) {
     <View style={styles.rootConainer}>
       <Title>Guess My Number</Title>
       <Card>
-        <InstructionText >Enter a number</InstructionText>
+        <InstructionText>Enter a number</InstructionText>
         <TextInput
           style={styles.numberInput}
           maxLength={2}
@@ -47,10 +47,7 @@ export default function StartGameScreen({ onPickNumber }) {
         />
         <View style={styles.buttonsContainer}>
           <View style={styles.buttonContainer}>
-            <PrimaryButton onPress={confirmInputHandler}>
-              {" "}
-              Confirm
-            </PrimaryButton>
+            <PrimaryButton onPress={confirmInputHandler}>Confirm</PrimaryButton>
           </View>
           <View style={styles.buttonContainer}>
             <PrimaryButton onPress={resetInputHandler}> Reset</PrimaryButton>
