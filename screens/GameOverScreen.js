@@ -3,7 +3,11 @@ import Title from "../components/ui/Title";
 import Colors from "../constants/colors";
 import PrimaryButton from "../components/ui/PrimaryButton";
 
-export default function GameIsOver() {
+export default function GameIsOver({
+  roundsNumber,
+  userNumber,
+  onStartNewGame,
+}) {
   return (
     <View style={styles.rootContainer}>
       <Title>Game Over !!!! </Title>
@@ -14,11 +18,11 @@ export default function GameIsOver() {
         />
       </View>
       <Text style={styles.summaryText}>
-        Your phone needed <Text style={styles.highlight}>X</Text> round to guess
-        the number
-        <Text style={styles.highlight}> Y</Text>.
+        Your phone needed <Text style={styles.highlight}>{roundsNumber}</Text>{" "}
+        round to guess the number
+        <Text style={styles.highlight}>{userNumber}</Text>.
       </Text>
-      <PrimaryButton>Game Over</PrimaryButton>
+      <PrimaryButton onPress={onStartNewGame}>Game Over</PrimaryButton>
     </View>
   );
 }
