@@ -7,6 +7,7 @@ import Card from "../components/ui/Card";
 import InstructionText from "../components/ui/InstructionText";
 import Entypo from "@expo/vector-icons/Entypo";
 import Ionicons from "@expo/vector-icons/Ionicons";
+import GuessLogItem from "../components/game/GuessLogItem";
 
 let minBoundary = 1;
 let maxBoundary = 100;
@@ -16,11 +17,13 @@ export default function GameScreen({ userNumber, onGameOver }) {
   const [currentGuess, setCurrentGuess] = useState(initialGuess);
   const [guessRounds, setGuessRounds] = useState([initialGuess]);
 
+  const guessRoundsListLength = guessRounds.length;
+
   useEffect(() => {
     if (currentGuess === userNumber) {
-      onGameOver();
+      onGameOver(guessRounds.length);
     }
-  }, [currentGuess]);
+  }, [currentGuess,userNumber,onGameOver]);
 
   useEffect(() => {
     minBoundary = 1;
@@ -59,9 +62,7 @@ export default function GameScreen({ userNumber, onGameOver }) {
       currentGuess
     );
     setCurrentGuess(nextGuessNumber);
-    setGuessRounds((prevGuessRounds) =>
-      setGuessRounds([nextGuessNumber, ...prevGuessRounds])
-    );
+    setGuessRounds((prevGuessRounds) => [nextGuessNumber, ...prevGuessRounds]);
   }
 
   return (
@@ -85,10 +86,15 @@ export default function GameScreen({ userNumber, onGameOver }) {
           </View>
         </View>
       </Card>
-      <View>
+      <View style={styles.listContainer}>
         <FlatList
           data={guessRounds}
-          renderItem={({ item }) => <Text> {item}</Text>}
+          renderItem={({ item, index }) => (
+            <GuessLogItem
+              roundNumber={guessRoundsListLength - index}
+              guess={item}
+            />
+          )}
           keyExtractor={(item) => item}
         />
       </View>
@@ -112,5 +118,10 @@ const styles = StyleSheet.create({
 
   instructionText: {
     marginBottom: 12,
+  },
+
+  listContainer: {
+    flex: 1,
+    padding: 20,
   },
 });

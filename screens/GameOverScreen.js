@@ -20,7 +20,7 @@ export default function GameIsOver({
       <Text style={styles.summaryText}>
         Your phone needed <Text style={styles.highlight}>{roundsNumber}</Text>{" "}
         round to guess the number
-        <Text style={styles.highlight}>{userNumber}</Text>.
+        <Text style={styles.highlight}> {userNumber}</Text>.
       </Text>
       <PrimaryButton onPress={onStartNewGame}>Game Over</PrimaryButton>
     </View>
