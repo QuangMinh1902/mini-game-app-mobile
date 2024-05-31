@@ -23,7 +23,7 @@ export default function GameScreen({ userNumber, onGameOver }) {
     if (currentGuess === userNumber) {
       onGameOver(guessRounds.length);
     }
-  }, [currentGuess,userNumber,onGameOver]);
+  }, [currentGuess, userNumber, onGameOver]);
 
   useEffect(() => {
     minBoundary = 1;
@@ -106,6 +106,7 @@ const styles = StyleSheet.create({
   screen: {
     flex: 1,
     padding: 24,
+    alignItems: "center",
   },
 
   buttonsContainer: {
